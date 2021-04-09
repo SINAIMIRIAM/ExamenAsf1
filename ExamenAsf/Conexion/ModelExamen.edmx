@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BolsaExamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="ALL_USERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="INSERT_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Paterno" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Materno" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Ciudad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Calle" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Numero" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Colonia" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Telefono" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="OtroTelefono" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+          <Parameter Name="Curp" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Rfc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Pasaporte" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Cartilla" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Genero" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="EstadoCivil" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Municipio" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Estado" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SELECT_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="BolsaExamenModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BolsaExamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BOLSA_EXAMENEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="ALL_USERS" ReturnType="Collection(BolsaExamenModel.ALL_USERS_Result)" />
+          <FunctionImport Name="INSERT_USER">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Pass" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Paterno" Mode="In" Type="String" />
+            <Parameter Name="Materno" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Calle" Mode="In" Type="String" />
+            <Parameter Name="Numero" Mode="In" Type="String" />
+            <Parameter Name="Colonia" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="OtroTelefono" Mode="In" Type="String" />
+            <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+            <Parameter Name="Curp" Mode="In" Type="String" />
+            <Parameter Name="Rfc" Mode="In" Type="String" />
+            <Parameter Name="Pasaporte" Mode="In" Type="String" />
+            <Parameter Name="Cartilla" Mode="In" Type="String" />
+            <Parameter Name="Genero" Mode="In" Type="String" />
+            <Parameter Name="EstadoCivil" Mode="In" Type="String" />
+            <Parameter Name="Municipio" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SELECT_USER" ReturnType="Collection(BolsaExamenModel.SELECT_USER_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ALL_USERS_Result">
+          <Property Type="Int64" Name="LLAVE_USUARIO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" />
+          <Property Type="String" Name="PATERNO" Nullable="true" />
+          <Property Type="String" Name="MATERNO" Nullable="true" />
+          <Property Type="String" Name="CIUDAD" Nullable="true" />
+          <Property Type="String" Name="GENERO" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_NAC" Nullable="true" />
+          <Property Type="String" Name="CURP" Nullable="true" />
+          <Property Type="String" Name="USUARIO" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="EMAIL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SELECT_USER_Result">
+          <Property Type="Int64" Name="LLAVE_DATO_PERSONAL" Nullable="false" />
+          <Property Type="Int64" Name="LLAVE_USUARIO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" />
+          <Property Type="String" Name="PATERNO" Nullable="true" />
+          <Property Type="String" Name="MATERNO" Nullable="true" />
+          <Property Type="String" Name="CIUDAD" Nullable="true" />
+          <Property Type="String" Name="CALLE" Nullable="true" />
+          <Property Type="String" Name="NUMERO" Nullable="true" />
+          <Property Type="String" Name="COLONIA" Nullable="true" />
+          <Property Type="String" Name="TELEFONO" Nullable="true" />
+          <Property Type="String" Name="OTRO_TEL" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_NAC" Nullable="true" />
+          <Property Type="String" Name="CURP" Nullable="true" />
+          <Property Type="String" Name="RFC" Nullable="true" />
+          <Property Type="String" Name="PASAPORTE" Nullable="true" />
+          <Property Type="String" Name="CARTILLA" Nullable="true" />
+          <Property Type="String" Name="GENERO" Nullable="true" />
+          <Property Type="String" Name="EDO_CIVIL" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_ALTA" Nullable="true" Precision="23" />
+          <Property Type="String" Name="MUN" Nullable="true" />
+          <Property Type="String" Name="EDO" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BolsaExamenModelStoreContainer" CdmEntityContainer="BOLSA_EXAMENEntities" >
+          <FunctionImportMapping FunctionImportName="ALL_USERS" FunctionName="BolsaExamenModel.Store.ALL_USERS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BolsaExamenModel.ALL_USERS_Result">
+                <ScalarProperty Name="LLAVE_USUARIO" ColumnName="LLAVE_USUARIO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PATERNO" ColumnName="PATERNO" />
+                <ScalarProperty Name="MATERNO" ColumnName="MATERNO" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="FECHA_NAC" ColumnName="FECHA_NAC" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="INSERT_USER" FunctionName="BolsaExamenModel.Store.INSERT_USER" />
+          <FunctionImportMapping FunctionImportName="SELECT_USER" FunctionName="BolsaExamenModel.Store.SELECT_USER">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BolsaExamenModel.SELECT_USER_Result">
+                <ScalarProperty Name="LLAVE_DATO_PERSONAL" ColumnName="LLAVE_DATO_PERSONAL" />
+                <ScalarProperty Name="LLAVE_USUARIO" ColumnName="LLAVE_USUARIO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PATERNO" ColumnName="PATERNO" />
+                <ScalarProperty Name="MATERNO" ColumnName="MATERNO" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="CALLE" ColumnName="CALLE" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="COLONIA" ColumnName="COLONIA" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="OTRO_TEL" ColumnName="OTRO_TEL" />
+                <ScalarProperty Name="FECHA_NAC" ColumnName="FECHA_NAC" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="PASAPORTE" ColumnName="PASAPORTE" />
+                <ScalarProperty Name="CARTILLA" ColumnName="CARTILLA" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="EDO_CIVIL" ColumnName="EDO_CIVIL" />
+                <ScalarProperty Name="FECHA_ALTA" ColumnName="FECHA_ALTA" />
+                <ScalarProperty Name="MUN" ColumnName="MUN" />
+                <ScalarProperty Name="EDO" ColumnName="EDO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

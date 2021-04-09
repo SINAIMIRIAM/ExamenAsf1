@@ -10,6 +10,9 @@ namespace ExamenAsf.Controllers
     {
         public ActionResult Index()
         {
+            var conexion = new Conexion.BOLSA_EXAMENEntities();
+            var listadoUsuarios = conexion.ALL_USERS();
+            ViewBag.Listado = listadoUsuarios;
             return View();
         }
 
